@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+source "$(dirname "$0")/init"
+
+
+rm -f "${package_source_archive}"
+rm -fr "${package}-${srcversion}"
+rm -f "${package_pkg_archive}"
+

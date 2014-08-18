@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+source "$(dirname "$0")/init"
+
+function _fetch() {
+  if [ ! -f "$2" ]; then
+    curl -O "$1/$2"
+  fi
+  sum=($(md5sum "$2"))
+  if [ "${sum[0]}" != "$3" ]; then
+    echo "Bad checksum for \"$2\"" >&2
+    exit 1
+  fi
+  echo "Extracting \"$2\"..."
+  tar xf "$2"
+}
+
+package_source_archive=${package}_${srcversion}.orig.tar.gz
+package_pkg_archive=${package}_${pkgversion}.debian.tar.xz
+
+_fetch "${poolserver}/${poolsection}/${package:0:1}/${package}" "${package_source_archive}" "${srcsum}"
+
+pushd "${package}-${srcversion}"
+
+_fetch "${poolserver}/${poolsection}/${package:0:1}/${package}" "${package_pkg_archive}" "${pkgsum}"
+

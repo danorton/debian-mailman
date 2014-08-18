@@ -1,0 +1,11 @@
+
+cd $(dirname "$0")
+package=mailman
+srcversion=2.1.18
+srcsum=02ce493711248e1d3723356188446d9f
+pkgversion=2.1.18-1
+pkgsum=c84d0d23c257b0db76a39b045b7fa695
+
+poolserver=http://ftp.us.debian.org/debian/pool
+poolsection=main
+
