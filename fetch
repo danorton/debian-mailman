@@ -16,9 +16,6 @@ function _fetch() {
   tar xf "$2"
 }
 
-package_source_archive=${package}_${srcversion}.orig.tar.gz
-package_pkg_archive=${package}_${pkgversion}.debian.tar.xz
-
 _fetch "${poolserver}/${poolsection}/${package:0:1}/${package}" "${package_source_archive}" "${srcsum}"
 
 pushd "${package}-${srcversion}"

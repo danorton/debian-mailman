@@ -9,3 +9,5 @@ pkgsum=c84d0d23c257b0db76a39b045b7fa695
 poolserver=http://ftp.us.debian.org/debian/pool
 poolsection=main
 
+package_source_archive=${package}_${srcversion}.orig.tar.gz
+package_pkg_archive=${package}_${pkgversion}.debian.tar.xz
